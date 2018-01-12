@@ -27,7 +27,7 @@ public class ETHServiceImpl implements ETHService{
 	@Override
 	public JSONObject getNewaddress(String walletPassword) throws Exception {
 		// TODO Auto-generated method stub
-		String s = ethutils.main("personal_newAccount", "[\""+walletPassword+"\", \"latest\"]");
+		String s = ethutils.main("personal_newAccount", "[\""+walletPassword+"\"]");
 		JSONObject json = JSONObject.fromObject(s); 
         return json;
 	}
