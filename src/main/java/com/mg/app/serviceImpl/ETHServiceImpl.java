@@ -38,4 +38,15 @@ public class ETHServiceImpl implements ETHService{
         return json;
 	}
 	
+	@Override
+	public JSONObject getAbstractMethod(String method, String paramsString) throws Exception{
+		if(method.isEmpty()) {
+			String json = "{\"method is null\":\"msg\"}";  
+			return JSONObject.fromObject(json);
+		}
+		String s = ethutils.main(method, paramsString);
+		JSONObject json = JSONObject.fromObject(s); 
+        return json;
+	}
+	
 }
