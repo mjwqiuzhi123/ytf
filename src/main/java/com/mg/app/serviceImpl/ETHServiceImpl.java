@@ -14,11 +14,20 @@ public class ETHServiceImpl implements ETHService{
 	@Autowired
 	ETHUtils ethutils;
 	
-	// 新建钱包
+	// 获取钱包余额
+	@Override
+	public JSONObject getBalance(String walletAddress) throws Exception {
+		// TODO Auto-generated method stub
+		String s = ethutils.main("eth_getBalance", "[\""+walletAddress+"\", \"latest\"]");
+		JSONObject json = JSONObject.fromObject(s); 
+        return json;
+	}
+	
+	// 新建钱包 的API是personal_newAccount 
 	@Override
 	public JSONObject getNewaddress(String walletPassword) throws Exception {
 		// TODO Auto-generated method stub
-		String s = ethutils.main("eth_getBalance", "[\""+walletPassword+"\", \"latest\"]");
+		String s = ethutils.main("personal_newAccount", "[\""+walletPassword+"\", \"latest\"]");
 		JSONObject json = JSONObject.fromObject(s); 
         return json;
 	}

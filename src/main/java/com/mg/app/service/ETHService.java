@@ -13,5 +13,7 @@ public interface ETHService {
 	public JSONObject getbalance(String address) throws Exception;
 
 	public JSONObject getAbstractMethod(String method, String paramsString) throws Exception;
+
+	public JSONObject getBalance(String walletAddress) throws Exception;
 	
 }
