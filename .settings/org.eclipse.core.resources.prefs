@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/main/resources/log4j.properties=UTF-8
+encoding//src/main/resources/spring-mvc.xml=UTF-8
+encoding//src/main/resources/spring-mybatis.xml=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/ETH.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/test.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/web.xml=UTF-8
+encoding//src/test/java/generatorConfig.xml=UTF-8
