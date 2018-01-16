@@ -37,8 +37,11 @@ public class ETHUtils {
 		// add reuqest header
 		con.setRequestMethod("POST");
 		con.setRequestProperty("Json-Rpc-Tonce", tonce.toString());
-
-		String postdata = "{\"jsonrpc\":\"2.0\",\"method\":\""+method+"\", \"params\":"+condition+", \"id\": 1}";
+		
+		if(condition == null)
+			return "参数不能为null";
+		//String postdata = "{\"jsonrpc\":\"2.0\",\"method\":\""+method+"\", \"params\":"+condition+", \"id\": 1}";
+		String postdata = condition;
 		// Send post request
 		con.setDoOutput(true);
 		DataOutputStream wr = new DataOutputStream(con.getOutputStream());

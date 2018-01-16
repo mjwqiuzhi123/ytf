@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mg.app.bean.ETHModel;
 import com.mg.app.service.ETHService;
+import com.mg.app.util.ETHUtils;
 
 @Controller
 @RequestMapping({"/eth"})
@@ -18,6 +19,8 @@ public class ETHController {
 	
 	@Autowired
 	ETHService ETHService;
+	@Autowired
+	ETHUtils ETHUtils;
 	
 	// 请求页面
 	@RequestMapping("/requestPage")
@@ -27,13 +30,31 @@ public class ETHController {
 	
 	// 请求转发
 	@RequestMapping("/forward")
-	public ModelAndView request(HttpServletRequest request,ETHModel model){
+	public ModelAndView forward(HttpServletRequest request,ETHModel model){
 		if(model.getMethod() != null && !model.getMethod().trim().equals("")){
 			request.setAttribute("param", model.getParam());
 			return new ModelAndView("forward:" + model.getMethod());
 		}
 		ModelAndView mv = new ModelAndView();
     	mv.addObject("result", "请输入接口");
+    	mv.setViewName("ETH");
+		return mv;
+	}
+	
+	@RequestMapping("/APIRequest")
+	public ModelAndView request(ETHModel model){
+		JSONObject resultJson = null;
+		if(model.getParam() != null && !model.getParam().trim().equals("")){
+			try {
+				String resultStr = ETHUtils.main(null, model.getParam().trim());
+				resultJson = JSONObject.fromObject(resultStr); 
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		ModelAndView mv = new ModelAndView();
+    	mv.addObject("result", resultJson);
     	mv.setViewName("ETH");
 		return mv;
 	}

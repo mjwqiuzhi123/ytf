@@ -32,7 +32,7 @@
 		</div>
 	</div>
 
-	<div>
+	<div style="display:none">
 		<form action="${pageContext.request.contextPath}/eth/forward">
 			<table class="imgtable">
 				<!--     <thead>
@@ -47,6 +47,38 @@
 				<tr id="divtr" style="height: 35px;">
 					<td><label>接口:</label><input type="text" name="method" /></td>
 					<td><label>参数:</label><input type="text" name="param" /></td>
+				</tr>
+				<tr>
+					<c:if test="${not empty result}">
+						<td><label>return json:</label>${result}</td>
+					</c:if>
+				</tr>
+				<tr id="divtr" style="height: 35px;">
+					<td><input type="submit" value="执行" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+		<div>
+		<form action="${pageContext.request.contextPath}/eth/APIRequest">
+			<table class="imgtable">
+				<!--     <thead>
+			    <tr id="thdiv">
+			    <th>用户编号</th>
+			    <th>用户手机号</th>
+			    <th>用户登录时间</th>
+			    <th>用户最后一次登录成功时间</th>
+			    <th>用户最后一次登录失败时间</th>
+			    </tr>
+			    </thead> -->
+				<tr id="divtr" style="height: 35px;">
+					<!-- <label>接口:</label><input type="text" name="method" /></td> -->
+					<!-- <td><label>参数:</label><input type="text" name="param" /></td> -->
+					<!-- <td><textarea name="param" rows="3" cols="20"></textarea></td> -->
+				</tr>
+				<tr>
+					<td><label>参数:</label><textarea name="param" rows="3" cols="150"></textarea></td>
 				</tr>
 				<tr>
 					<c:if test="${not empty result}">
