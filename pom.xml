@@ -16,6 +16,7 @@
 		<!-- log4j日志文件管理包版本 -->
 		<slf4j.version>1.7.7</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
+		<project.build.sourceEncoding>GBK</project.build.sourceEncoding> 
 	</properties>
 
 
@@ -28,6 +29,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+					<encoding>GBK</encoding>
 				</configuration>
 			</plugin>
 		</plugins>

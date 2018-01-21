@@ -30,7 +30,7 @@ public class ETHUtils {
 				//+ ACCESS_KEY
 				+ "&requestmethod=post&id=1&method="+method+"&params="+condition;
 
-		String url = "http://"+"localhost"+":"+"23116"; // 119.28.16.55
+		String url = "http://"+"localhost"+":"+"8545"; // 119.28.16.55
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 

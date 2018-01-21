@@ -21,7 +21,7 @@ public class ETHController {
 	ETHService ETHService;
 	@Autowired
 	ETHUtils ETHUtils;
-	
+//	@re
 	// «Î«Û“≥√Ê
 	@RequestMapping("/requestPage")
 	public ModelAndView request(){
