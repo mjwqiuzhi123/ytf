@@ -36,6 +36,8 @@ public class ETHUtils {
 
 		// add reuqest header
 		con.setRequestMethod("POST");
+		con.setRequestProperty("accept", "*/*");
+		con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 		con.setRequestProperty("Json-Rpc-Tonce", tonce.toString());
 		
 		if(condition == null)
